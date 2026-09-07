@@ -1,0 +1,25 @@
+-- 01_basic.lua: 基础算术与 print
+print("=== 基础算术 ===")
+print(1 + 2)
+print(10 - 3)
+print(4 * 5)
+print(20 / 4)
+print(17 % 5)
+print(2 ^ 10)
+
+print("=== 字符串 ===")
+print("hello" .. " " .. "world")
+print(#"lua")
+
+print("=== 布尔与 nil ===")
+print(true)
+print(false)
+print(nil)
+print(1 < 2)
+print(3 == 3)
+print("a" ~= "b")
+
+print("=== 逻辑运算 ===")
+print(1 and 2)
+print(nil or "default")
+print(not false)

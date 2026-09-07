@@ -1,0 +1,29 @@
+# C 构建产物
+*.o
+*.obj
+*.exe
+mini-lua
+mini-lua.exe
+
+# 调试信息
+*.dSYM/
+*.pdb
+
+# Node.js / VitePress
+docs/node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 项目索引
+.codeartsdoer/
+.codegraph/
