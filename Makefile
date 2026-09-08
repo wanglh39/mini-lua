@@ -7,7 +7,7 @@
 #   make clean    清理构建产物
 
 CC      := gcc
-CFLAGS  := -std=c99 -Wall -Wextra -g -O2 -fno-strict-aliasing
+CFLAGS  := -std=gnu99 -Wall -Wextra -g -O2 -fno-strict-aliasing
 LDFLAGS := -lm
 
 SRC_DIR := src
