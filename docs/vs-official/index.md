@@ -16,7 +16,7 @@
 
 官方 Lua 的 Table 是最精妙的数据结构之一：
 
-```c
+```text
 // 官方
 struct Table {
     TValue *array;  // 数组部分（整数键 1..n）
