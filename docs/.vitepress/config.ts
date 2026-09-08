@@ -6,6 +6,7 @@ export default defineConfig({
   description: '从零用 C 实现 Lua 5.1 子集——学习底层原理与设计哲学',
 
   base: '/mini-lua/',
+  ignoreDeadLinks: true,
 
   themeConfig: {
     siteTitle: 'mini-lua',
