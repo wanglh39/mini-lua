@@ -36,12 +36,13 @@ export default defineConfig({
         {
           text: '实现笔记',
           items: [
+            { text: '快速上手', link: '/chapters/quickstart' },
             { text: '阶段 1：树遍历解释器', link: '/chapters/01-treewalk' },
             { text: '阶段 2：栈式字节码 VM', link: '/chapters/02-stack-vm' },
             { text: '阶段 3：闭包 + table + metatable', link: '/chapters/03-closure-table' },
             { text: '阶段 4：寄存器式 VM', link: '/chapters/04-register-vm' },
-            { text: '阶段 5a：增量 GC', link: '/chapters/05a-gc' },
-            { text: '阶段 5b：coroutine', link: '/chapters/05b-coroutine' },
+            { text: '阶段 5a：标记-清除 GC', link: '/chapters/05a-gc' },
+            { text: '阶段 5b：协程 coroutine', link: '/chapters/05b-coroutine' },
           ],
         },
       ],
