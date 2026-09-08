@@ -14,7 +14,7 @@ hero:
       link: /philosophy/
     - theme: alt
       text: GitHub
-      link: https://github.com/your-username/mini-lua
+      link: https://github.com/wanglh39/mini-lua
 
 features:
   - title: 设计哲学即教材

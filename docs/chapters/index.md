@@ -4,13 +4,13 @@
 
 ## 阶段总览
 
-| 阶段 | 标题 | 状态 |
-|------|------|------|
-| [1](./01-treewalk) | 树遍历解释器 | 未开始 |
-| [2](./02-stack-vm) | 栈式字节码 VM | 未开始 |
-| [3](./03-closure-table) | 闭包 + table + metatable | 未开始 |
-| [4](./04-register-vm) | 寄存器式 VM | 未开始 |
-| [5a](./05a-gc) | 增量标记-清除 GC | 未开始 |
-| [5b](./05b-coroutine) | coroutine | 未开始 |
+| 阶段 | 标题 | 状态 | 测试 |
+|------|------|------|------|
+| [1](./01-treewalk) | 树遍历解释器 | ✅ 完成 | 01-03 通过 |
+| [2](./02-stack-vm) | 栈式字节码 VM | ✅ 完成 | 01-03 通过 |
+| [3](./03-closure-table) | 闭包 + table + metatable | ✅ 完成 | 01-06 通过 |
+| [4](./04-register-vm) | 寄存器式 VM | ✅ 完成 | 01-06 通过 |
+| [5a](./05a-gc) | 标记-清除 GC | ✅ 完成 | 08 通过 |
+| [5b](./05b-coroutine) | 协程 coroutine | ✅ 完成 | 07 通过 |
 
-> 每阶段完成后同步填充笔记。详见 [ROADMAP.md](https://github.com/your-username/mini-lua/blob/main/ROADMAP.md)。
+> 全部 5 个阶段已完成，8 个测试全部通过。

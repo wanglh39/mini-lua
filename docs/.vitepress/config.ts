@@ -63,7 +63,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/mini-lua' },
+      { icon: 'github', link: 'https://github.com/wanglh39/mini-lua' },
     ],
 
     footer: {
