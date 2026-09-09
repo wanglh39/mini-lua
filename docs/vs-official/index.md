@@ -44,3 +44,21 @@ rehash 时计算最优分区：哪些键放数组、哪些放哈希。目标是�
 | `OP_VARARG` | 可变参数 `...` | 不支持 | 无法用 `...` |
 | `OP_TESTSET` | TEST + MOVE 合并 | TEST + MOVE | 多一条指令 |
 | `OP_CLOSE` | 显式关闭 upvalue | RETURN 时统一关闭 | 语义一致 |
+
+多出的指令：
+
+| 指令 | 官方做法 | 我们的做法 |
+|------|---------|-----------|
+| `OP_NE` | NOT EQ | 独立指令 |
+| `OP_GT` | NOT LE | 独立指令 |
+| `OP_GE` | NOT LT | 独立指令 |
+| `OP_SETTABLEK` | OP_SETTABLE + 常量 | 独立指令（常量键优化） |
+| `OP_TESTN` | NOT TEST | 独立指令（or 短路） |
+
+### 指令格式
+
+| | 官方 | 我们 |
+|---|------|------|
+| 编码 | 32 位紧凑（Op:6 A:8 B:9 C:9） | struct {OpCode, int A/B/C, int line} |
+| 大小 | 4 字节/指令 | ~20 字节/指令 |
+| 优势 | 紧凑、缓存友好 | 直观、可读 |
