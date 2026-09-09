@@ -12,3 +12,35 @@
 | 闭包 | LClosure + CClosure 两种 | 单一 Function（union） | 合并简化 |
 | Proto | LineInfo、LocVars、source 等调试信息 | 只有 local_names | 省去调试信息 |
 
+### Table 的 array+hash 混合
+
+官方 Lua 的 Table 是最精妙的数据结构之一：
+
+```text
+// 官方
+struct Table {
+    TValue *array;  // 数组部分（整数键 1..n）
+    Node *node;     // 哈希部分（其余键）
+    int sizearray;  // 数组大小
+    int lsizenode;  // 哈希大小（log2）
+};
+```
+
+rehash 时计算最优分区：哪些键放数组、哪些放哈希。目标是最大化数组部分（缓存友好）。
+
+我们纯哈希——所有键统一处理，省去分区逻辑。代价是整数键访问不如数组快。
+
+## 指令集
+
+官方 38 条，我们 30 条。
+
+| 缺少的指令 | 官方用途 | 我们的替代 | 影响 |
+|-----------|---------|-----------|------|
+| `OP_SELF` | `obj:method()` 语法糖 | GETTABLE + CALL | 多一条指令 |
+| `OP_TAILCALL` | 尾调用优化（复用当前帧） | 不支持 | 深递归可能栈溢出 |
+| `OP_FORLOOP/OP_FORPREP` | 数值 for 专用指令 | while + 计数器 | 多几条指令 |
+| `OP_TFORLOOP/OP_TFORPREP` | 泛型 for `for k,v in pairs(t)` | while + next | 多几条指令 |
+| `OP_SETLIST` | table 批量构造 `{1,2,3}` | 逐条 SETTABLEK | 大 table 构造慢 |
+| `OP_VARARG` | 可变参数 `...` | 不支持 | 无法用 `...` |
+| `OP_TESTSET` | TEST + MOVE 合并 | TEST + MOVE | 多一条指令 |
+| `OP_CLOSE` | 显式关闭 upvalue | RETURN 时统一关闭 | 语义一致 |
