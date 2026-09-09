@@ -88,6 +88,8 @@ mini-lua/
 
 ## 文档站
 
+**在线访问**：<https://wanglh39.github.io/mini-lua/>
+
 ```bash
 cd docs && npm install && npm run dev    # 本地预览
 ```
