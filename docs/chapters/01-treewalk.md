@@ -143,7 +143,7 @@ static Exp *parse_binop_rhs(Lexer *lx, int min_prec, Exp *lhs) {
 
 ## 树遍历执行 (lvm.c)
 
-### 闭包 = {body, env}
+### 闭包 = `{body, env}`
 
 ```c
 struct Function {
@@ -294,7 +294,7 @@ struct Env { Binding *bindings; ... };  // 最后定义
 | 方面 | 官方 | 我们 |
 |------|------|------|
 | 执行方式 | 字节码 VM | 树遍历 |
-| 闭包 | Proto + UpVal[] | {body, env} |
+| 闭包 | Proto + UpVal[] | `{body, env}` |
 | 变量查找 | 寄存器/UpVal（O(1)） | 环境链表遍历（O(n)） |
 | 内存 | GC 管理 | malloc，不回收 |
 | 错误处理 | longjmp + pcall | exit(1) |
